@@ -9,5 +9,11 @@
 
 
 
-public partial class  {
+namespace XmCloudSXAStarter.Utilities
+{
+
+
+    public partial class InitializePointOfSale
+    {
+    }
 }
