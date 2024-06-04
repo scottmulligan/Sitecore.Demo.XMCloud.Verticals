@@ -37,7 +37,8 @@
           "warmUpCm": {
             "urls": [
               "/Utilities/InitializeComponentsLibraryId.aspx",
-              "/Utilities/InitializeHostname.aspx"
+              "/Utilities/InitializeHostname.aspx",
+              "/Utilities/InitializePointOfSale.aspx"
             ]
           },
           "reindex": {

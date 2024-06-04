@@ -75,6 +75,7 @@
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="README.md" />
     <None Include="web.config" />
+    <Content Include="Utilities\InitializePointOfSale.aspx" />
     <Content Include="xdts\Web.config.xdt" />
   </ItemGroup>
   <ItemGroup />
@@ -94,6 +95,13 @@
     </Compile>
     <Compile Include="Utilities\InitializeHostname.aspx.designer.cs">
       <DependentUpon>InitializeHostname.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\InitializePointOfSale.aspx.cs">
+      <DependentUpon>InitializePointOfSale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\InitializePointOfSale.aspx.designer.cs">
+      <DependentUpon>InitializePointOfSale.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\ResetComponentsLibraryId.aspx.cs">
       <DependentUpon>ResetComponentsLibraryId.aspx</DependentUpon>
