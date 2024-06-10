@@ -1,0 +1,165 @@
+{
+  "clientKey": "3509a0a2b7cc0542af1e697ea16dafe9",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/4a675e0e-3d90-47cf-87e9-7c0225d4fd40",
+  "ref": "4a675e0e-3d90-47cf-87e9-7c0225d4fd40",
+  "name": "embedded_{scope}_b2a38fb82e854d58afe5c12beccbee3a_en",
+  "modifiedByRef": "UsQ4dFnLMklHuDXU8acKstHeXEC65tgU@clients",
+  "modifiedAt": "2024-06-10T16:57:48.199Z",
+  "revision": 9,
+  "archived": false,
+  "friendlyId": "embedded_{scope}_b2a38fb82e854d58afe5c12beccbee3a_en",
+  "type": "INTERACTIVE_API_FLOW",
+  "subtype": "EXPERIENCE",
+  "channels": [
+    "WEB"
+  ],
+  "triggers": [],
+  "dashboardLinks": [],
+  "tags": [],
+  "businessProcess": "interactive_v1",
+  "traffic": {
+    "type": "audienceTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2024-06-10T16:57:48.229Z",
+    "splits": [
+      {
+        "template": "{\"variantId\": \"5e9637fd02a84b21b5f46c1466e26e17\"}",
+        "variantName": "Business Campaign",
+        "audienceName": "Business Campaign",
+        "conditionGroups": [
+          {
+            "conditions": [
+              {
+                "templateId": "utm_value",
+                "params": {
+                  "type": "campaign",
+                  "compares to": "is equal to",
+                  "UTM value": "business"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "template": "{\"variantId\": \"2538ab68658240c2917f1d79a53698c7\"}",
+        "variantName": "Retirement Campaign",
+        "audienceName": "Retirement Campaign",
+        "conditionGroups": [
+          {
+            "conditions": [
+              {
+                "templateId": "utm_value",
+                "params": {
+                  "type": "campaign",
+                  "compares to": "is equal to",
+                  "UTM value": "retirement"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "template": "{\"variantId\": \"6ab65cfcbdf14e09b518f1a74fc77ac4\"}",
+        "variantName": "Personal Page View",
+        "audienceName": "Personal Page View",
+        "conditionGroups": [
+          {
+            "conditions": [
+              {
+                "templateId": "page_view",
+                "params": {
+                  "has": "has",
+                  "page name(s)": "personal"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "template": "{\"variantId\": \"c1a0eeadfde348ba8d485b52326c84ea\"}",
+        "variantName": "Business Page View",
+        "audienceName": "Business Page View",
+        "conditionGroups": [
+          {
+            "conditions": [
+              {
+                "templateId": "page_view",
+                "params": {
+                  "has": "has",
+                  "page name(s)": "business"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "template": "{\"variantId\": \"692b13379ec547dbafba079ccc4927dd\"}",
+        "variantName": "Retirement Page View",
+        "audienceName": "Retirement Page View",
+        "conditionGroups": [
+          {
+            "conditions": [
+              {
+                "templateId": "page_view",
+                "params": {
+                  "has": "has",
+                  "page name(s)": "retirement-planning"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "variants": [],
+  "transpiledVariants": [
+    {
+      "ref": "a3da566b-bec6-4241-a459-2de7bc793db2",
+      "name": "Business Campaign",
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "{\"variantId\": \"5e9637fd02a84b21b5f46c1466e26e17\"}"
+          }
+        },
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "scriptCondition",
+                "name": "Combined condition groups",
+                "description": "Combined templates within condition group for targeted experience",
+                "ruleData": {
+                  "expression": "(function () {\n    var compareValue = \"is equal to\";\n    var utmType = \"campaign\";\n    var utmValue = \"business\";\n    var utmMultiValue = \"\";\n    var utmArray = utmMultiValue.split(',');\n    var utmMatch = false;\n    \n    \n    if (request && request.params && request.params.utm) {\n        if (request.params.utm[utmType]) {\n            if (compareValue === 'is equal to') {\n               utmMatch = request.params.utm[utmType] === utmValue; \n            } else if (compareValue === 'includes any of') {\n                for (var k = 0; k < utmArray.length; k++) {\t\n                    if (request.params.utm[utmType] === utmArray[k]) {\t\n                        utmMatch = true;\t\n                        break;\t\n                    }\n                }\n            } else if (compareValue === 'contains') {\n                utmMatch = request.params.utm[utmType].indexOf(utmValue) >= 0 ? true : false;\n            } else if (compareValue === 'starts with') {\n                utmMatch = request.params.utm[utmType].startsWith(utmValue);\n            } else if (compareValue === 'ends with') {\n                utmMatch = request.params.utm[utmType].endsWith(utmValue);\n            } else if (compareValue === 'is null') {\n                utmMatch = !request.params.utm[utmType];\n            }\n        } else if (compareValue === 'is null') {\n      \t    utmMatch = true;\n        }\n    } else if (guest.sessions && guest.sessions.length > 0) {\n        var currentSession = null;\n        for (var i = 0; i < guest.sessions.length; i++) {\n          if (guest.sessions[i].channel === \"WEB\") {\n            currentSession = guest.sessions[i];\n            break;\n          }\n        }\n        if (currentSession && currentSession.events && currentSession.events.length > 0) {\n            var firstEventIndex = currentSession.events.length - 1;\n            var firstEvent = currentSession.events[firstEventIndex];\n            var utmTypeProperty = 'utm_' + utmType;\n            if (firstEvent.arbitraryData && firstEvent.arbitraryData[utmTypeProperty]) {\n                if (compareValue === 'is equal to') {\n                    utmMatch = firstEvent.arbitraryData[utmTypeProperty] === utmValue; \n                } else if (compareValue === 'includes any of') {\n                    for (var m = 0; m < utmArray.length; m++) {\t\n                        if (firstEvent.arbitraryData[utmTypeProperty] === utmArray[m]) {\t\n                            utmMatch = true;\t\n                            break;\t\n                        }\n                    }\n                } else if (compareValue === 'contains') {\n                    utmMatch = firstEvent.arbitraryData[utmTypeProperty].indexOf(utmValue) >= 0 ? true : false;\n                } else if (compareValue === 'starts with') {\n                    utmMatch = firstEvent.arbitraryData[utmTypeProperty].startsWith(utmValue);\n                } else if (compareValue === 'ends with') {\n                    utmMatch = firstEvent.arbitraryData[utmTypeProperty].endsWith(utmValue);\n                } else if (compareValue === 'is null') {\n                    utmMatch = !firstEvent.arbitraryData[utmTypeProperty];\n                }\n            } else if (compareValue === 'is null') {\n          \t    utmMatch = true;\n            }\n        }\n    }\n    \n    return utmMatch;\n})();"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "status": "PRODUCTION",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2024-06-10T16:38:13.665Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/4a675e0e-3d90-47cf-87e9-7c0225d4fd40/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.15,
+    "minimumDetectableDifference": 0.02,
+    "confidenceLevel": 0.95
+  }
+}
