@@ -22,12 +22,22 @@ SharedFields:
 - ID: "a3411ff6-c978-40aa-b059-a49b9ca2209b"
   Hint: Can select Page as a data source
   Value: 1
+- ID: "a6d4fc1d-0803-4e0a-9145-b8c6121d6f26"
+  Hint: CacheClearingBehavior
+  Value: Clear on publish
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
   Value: "{175A5B0F-A181-446D-A0EA-4B8F5EE42DB2}"
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: "{2F5C334E-5615-423C-8281-9FC180191302}"
+- ID: "b4bbc0be-7619-4678-b2f7-947d84aa77a9"
+  Hint: Content Dependencies
+  Value: |
+    {07BB8ABE-7A1D-4AF2-B7D6-BF5140AAAF21}
+    {5E13EE6F-522F-41CA-8929-AEE8EE103862}
+    {B0B5B0CD-6445-4FAE-A989-6CA9C50CC29A}
+    {A0E6ACDE-987D-49EC-9503-85FD995DE19E}
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: "query:$site/*"
@@ -59,7 +69,7 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6f4d7c85-6943-43ca-8d0d-7d545d88c17d"
+      Value: "5175d82e-c941-485e-a21a-5d1822435c1e"
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
