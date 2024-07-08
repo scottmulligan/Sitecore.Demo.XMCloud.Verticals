@@ -15,7 +15,7 @@ SharedFields:
   Value: Services
 - ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
   Hint: HostName
-  Value: "scm-custom-repo-cljhpgdukg1k67eqjc2fa-services.vercel.app"
+  Value: "scm-vert-main-test-lwowaziuee2rfzblnjakog-services.vercel.app"
 - ID: "cb4e9e2e-2b66-43dc-ad3f-9caf363d28d3"
   Hint: SiteName
   Value: Services
@@ -35,7 +35,7 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f4d761d6-a86d-49f2-9928-174caac84103"
+      Value: "282d9ffa-8e53-4870-91cd-317d372df15a"
     - ID: "96cffc48-0bd5-4f70-9b36-d49c844d51ef"
       Hint: Theme
       Value: Services
